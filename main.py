@@ -11,16 +11,17 @@ def main():
         print("************************************************************")
         print("                     MENU PRINCIPAL")
         print("************************************************************")
-
-        opcion = int(input("Que tipo de usuario eres:\n1.CORDINADOR\n2.TRAINER\n3.CAMPER\n4.SALIR\n\nIngrese su eleccion: "))
+        print("¿Que tipo de usuario eres?\n1. MODULO CAMPERS\n2. MODULO TRAINERS\n3. MODULO REPORTES\n4. SALIR")
+        opcion = int(input("\n\nIngrese su eleccion(1-4): "))
         if opcion == 1:
             reu.clear()
             menu_coordinador.menu_coordi()
         elif opcion == 2:
+            reu.clear()
             trainer.menu_trainer()
         elif opcion == 3:
             reu.clear()
-            reportes.menu_camper()
+            reportes.menu_reportes()
         elif opcion == 4:
             reu.clear()
             print("SALIENDO...")
@@ -29,5 +30,9 @@ def main():
             print("ADIOS.")
             time.sleep(2)
             break 
+        else: 
+            print("Opcion no valida")
+            time.sleep(1)
+            reu.clear()
 
 main()
