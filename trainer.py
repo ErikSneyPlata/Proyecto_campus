@@ -4,56 +4,62 @@ import funciones.rec_funcion as reu
 
 
 def menu_trainer():
+    while True:
         print("************************************************************************")
         print("                     MENU TRAINER")
         print("************************************************************************\n")
         print("********************************************************")
         print("              INSCRIPCION TRAINER")
         print("********************************************************")
-        print("1.Registrar trainer")
-        print("2.Modificar trainer")
-        print("3.Retirar trainer")
-        print("4.asignar horario y salon de clases a trainer")
-        print("5.mostrar trainers")
+        print("1. Registrar trainer")
+        print("2. Modificar trainer")
+        print("3. Retirar trainer")
+        print("4. Asignar horario y salón de clases a trainer")
+        print("5. Mostrar trainers")
         
         print("********************************************************")
         print("         FASE DESARROLLO")
         print("********************************************************")
         print("6. Calificar a estudiantes de un grupo (POR MODULO)")
         print("7. Modificar notas de estudiante individualmente")
-        print("8. verificar estudiantes retirados por rendimiento academico")
+        print("8. Verificar estudiantes retirados por rendimiento académico")
         print("9. Retirar estudiante voluntariamente")
         print("***********************************************")
-        print("14. REGRESAR --> Menu principal")
+        print("10. REGRESAR --> Menu principal")
         print("***********************************************\n")
 
-        opt=int(input("ingrese su opcion: "))
-        if opt==1:
-            registrar_trainer()
-        elif opt==2:
-            modificar_trainer()
-        elif opt==3:
-            retirar_trainer()
-        elif opt==4:
-            asignar_horario_salon()
-        elif opt==5:
-            mostrar_trainers()
-        elif opt==6:
-            coordinador.calificar_estudiantes()
-        elif opt==7:
-            modificar_notas_estudiante()
-        elif opt==8:
-            estudiantes_expulsados()
-        elif opt==9:
-            retirar_voluntario_deuda()
-        elif opt==10:
-            return
-        else:
-            print("La opcion que ingresaste no esta disponible.")
+        try:
+            opt = int(input("Ingrese su opción: "))
+            if opt == 1:
+                registrar_trainer()
+            elif opt == 2:
+                modificar_trainer()
+            elif opt == 3:
+                retirar_trainer()
+            elif opt == 4:
+                asignar_horario_salon()
+            elif opt == 5:
+                mostrar_trainers()
+            elif opt == 6:
+                coordinador.calificar_estudiantes()
+            elif opt == 7:
+                modificar_notas_estudiante()
+            elif opt == 8:
+                estudiantes_expulsados()
+            elif opt == 9:
+                retirar_voluntario_deuda_expulsion()
+            elif opt == 10:
+                return
+            else:
+                print("La opción que ingresaste no está disponible.")
+        except ValueError:
+            print("Por favor, ingrese un número válido.")
+        except Exception as e:
+            print(f"Ocurrió un error: {e}")
             
 #***************************************************************            
 def guardar_logistica_campus(data):
-    with open("json//campus.json","r") as guardar:
+    with open("json//campus.json","w") as guardar:
         json.dump(data,guardar,indent=4)
     print("\nGUARDANDO...\n")
 
@@ -115,7 +121,7 @@ def registrar_trainer():
                 continue
             
             estado = "Contratado"
-            data["campers"][str(documento)] = {
+            data["trainers"][str(documento)] = {
                 "Nombres": nombres,
                 "Apellidos": apellidos,
                 "Direccion": direccion,
@@ -123,7 +129,6 @@ def registrar_trainer():
                 "Telefonos fijo": telefono_fijo,
                 "Estado": estado,
                 "Grupos":[],
-                "Horario clases":[]
             }
             print("***********************************************")
             reu.guardar_actualizar_json(data)
@@ -133,12 +138,12 @@ def registrar_trainer():
             print("***********************************************")
             print("Ya se encuentra registrado.")
             print("***********************************************")
-                  
-        while True:
-            rep = input("¿Desea agregar otro trainer para presentar examen? (1. Si, 2. No): ")
+            
+        try:      
+            rep = input("¿Desea agregar otro trainer? (1. Si, 2. No): ")
             if rep == '1': break
-            elif rep == '2': return
-            else: print("Opción no válida. Por favor, ingrese 1 para Sí o 2 para No.")
+            elif rep == '2': break
+        except Exception: print("Opción no válida. Por favor, ingrese 1 para Sí o 2 para No.")
             
 def modificar_trainer():
     data = reu.leer_crear_json()
@@ -238,7 +243,7 @@ def asignar_horario_salon():
     print("********************************************************")
     coordinador.mostrar_grupos()
     print("\n")
-    grupo_selec = input("Ingrese el nombre del grupo a asignar horario y salón: ")
+    grupo_selec = input("Ingrese el nombre del grupo para asignar horario y salón: ")
 
     try:
         if grupo_selec not in data["estudiantes"]:
@@ -268,13 +273,19 @@ def asignar_horario_salon():
                 print("Ingrese una opción válida.")
 
         print("Los horarios disponibles son:")
-        if len(logistica[elec_salon]) > 0:
-            for horario in logistica[elec_salon]:
-                print(horario)
+        if any(grupo is None for grupo in logistica[elec_salon].values()):
+            for hora, grupo in logistica[elec_salon].items():
+                if grupo is None:
+                    print(f" - {hora}")
+            elec_horario = input("¿Cuál horario deseas asignar para ese grupo (6AM, 10AM, 2PM)?: ")
+            if elec_horario in logistica[elec_salon] and logistica[elec_salon][elec_horario] is None:
+                logistica[elec_salon][elec_horario] = grupo_selec
+                guardar_logistica_campus(logistica)
+                print(f"Horario {elec_horario} asignado al grupo {grupo_selec} en el salón {elec_salon}.")
+            else:
+                print("La opción indicada no es válida o el horario ya está ocupado.")
         else:
             print("No hay horarios disponibles para este salón.")
-
-        print(f"{cc}. Salir")
 
     except ValueError as e:
         print(f"Error: {e}")
@@ -298,7 +309,6 @@ def mostrar_trainers():
             print(f"Nombres: {info["Nombres"]}")
             print(f"Apellidos: {info["Apellidos"]}")
             print(f"Direccion: {info["Direccion"]}")
-            print(f"Acudiente: {info["Acudiente"]}")
             print(f"Telefonos movil: {info["Telefonos movil"]}")
             print(f"Telefonos fijo: {info["Telefonos fijo"]}")
             print(f"Estado: {info["Estado"]}\n")
@@ -377,6 +387,81 @@ def modificar_notas_estudiante():
 
 
 def estudiantes_expulsados():
-    print("Conteo de estudiantes expulsados por rendimiento")
+    data = reu.leer_crear_json()  # Leer los datos del JSON
+    expulsados = []
+
+    for grupo, estudiantes in data["estudiantes"].items():
+        for doc, info in estudiantes.items():
+            if info.get("Estado") == "Expulsado" and info.get("Riesgo", False):
+                expulsados.append({
+                    "Documento": doc,
+                    "Nombres": info["Nombres"],
+                    "Apellidos": info["Apellidos"],
+                    "Grupo": grupo
+                })
+
+    print("************************************************************")
+    print("           Estudiantes expulsados por rendimiento")
+    print("************************************************************")
     
-retirar_voluntario_deuda()
+    if expulsados:
+        for estudiante in expulsados:
+            print(f"Documento: {estudiante['Documento']}")
+            print(f"Nombres: {estudiante['Nombres']}")
+            print(f"Apellidos: {estudiante['Apellidos']}")
+            print(f"Grupo: {estudiante['Grupo']}")
+            print("------------------------------------------------------------")
+    else:
+        print("No hay estudiantes expulsados por rendimiento académico.")
+        
+    print("************************************************************")
+    
+def retirar_voluntario_deuda_expulsion():
+    data = reu.leer_crear_json()
+    print("************************************************************")
+    print("           Retiro de camper de CAMPUSLANDS")
+    print("************************************************************")
+    
+    doc = input("Ingrese el documento para retirar al camper: ")
+    
+    estudiante_encontrado = None
+    grupo_encontrado = None
+    
+    # Buscar al estudiante en todos los grupos
+    for grupo, estudiantes in data["estudiantes"].items():
+        if doc in estudiantes:
+            estudiante_encontrado = estudiantes[doc]
+            grupo_encontrado = grupo
+            break
+    
+    if estudiante_encontrado is not None:
+        try:
+            opt = int(input("\n1. Retiro Voluntario\n2. Expulsar\n3. Cancelar\n\n¿Qué acción quieres realizar?\nIngrese su opción: "))
+            if opt == 1:
+                estudiante_encontrado["Estado"] = "Retirado, tiene deuda"
+                estudiante_encontrado["Deuda"] = 12000000
+                
+                reu.guardar_actualizar_json(data)
+                print("***********************************************")
+                print("\nCambio de estado guardado correctamente.")
+                print("***********************************************")
+                
+            elif opt == 2:
+                estudiante_encontrado["Estado"] = "Expulsado"
+                
+                reu.guardar_actualizar_json(data)
+                print("***********************************************")
+                print("\nCambio de estado guardado correctamente.")
+                print("***********************************************")
+            elif opt == 3:
+                return
+                
+            else:
+                print("Opción no válida. Por favor, elige 1 o 2.")
+        except ValueError:
+            print("Por favor, ingrese un número válido.")
+    else:
+        print("***********************************************")
+        print("No se encontró un camper con ese documento.")
+        print("***********************************************")
+    

@@ -311,6 +311,8 @@ def asignar_salon():
                 data_filtrada[doc] = info
         data["en espera"] = data_filtrada
         
+        
+        
         reu.guardar_actualizar_json(data)
         print("********************************************************")
         print(f"Se asignaron {estudiantes_a_asignar} estudiantes al salón {nombre_salon}.")
