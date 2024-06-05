@@ -1,15 +1,5 @@
 {
     "campers": {
-        "1005163109": {
-            "Nombres": "Erik",
-            "Apellidos": "Plata",
-            "Direccion": "calle 16dn #10d34",
-            "Acudiente": "christian",
-            "Telefonos movil": 3209114670,
-            "Telefonos fijo": 6407821,
-            "Estado": "En proceso de ingreso",
-            "Riesgo": false
-        },
         "1005163110": {
             "Nombres": "Sneyder",
             "Apellidos": "Arias",
@@ -40,6 +30,38 @@
             "Estado": "Rechazado",
             "Riesgo": false
         },
+        "1093493033": {
+            "Nombres": "",
+            "Apellidos": "galindo",
+            "Direccion": "calle 23d 23 54",
+            "Acudiente": "marcela",
+            "Telefonos movil": 3129058632,
+            "Telefonos fijo": 0,
+            "Estado": "Inscrito",
+            "Riesgo": false
+        },
+        "1005123121": {
+            "Nombres": "Erik",
+            "Apellidos": "Plata",
+            "Direccion": "calle 23 54 54",
+            "Acudiente": "fgdgfd",
+            "Telefonos movil": 5443453,
+            "Telefonos fijo": 4324,
+            "Estado": "Inscrito",
+            "Riesgo": false
+        }
+    },
+    "en espera": {
+        "1005163109": {
+            "Nombres": "Erik",
+            "Apellidos": "Plata",
+            "Direccion": "calle 16dn #10d34",
+            "Acudiente": "christian",
+            "Telefonos movil": 3209114670,
+            "Telefonos fijo": 6407821,
+            "Estado": "En proceso de ingreso",
+            "Riesgo": false
+        },
         "982312736": {
             "Nombres": "Karen",
             "Apellidos": "Fajardo",
@@ -48,16 +70,6 @@
             "Telefonos movil": 31795803232,
             "Telefonos fijo": 0,
             "Estado": "En proceso de ingreso",
-            "Riesgo": false
-        },
-        "1093493033": {
-            "Nombres": "",
-            "Apellidos": "galindo",
-            "Direccion": "calle 23d 23 54",
-            "Acudiente": "marcela",
-            "Telefonos movil": 3129058632,
-            "Telefonos fijo": 0,
-            "Estado": "Rechazado",
             "Riesgo": false
         },
         "982563732": {
@@ -71,7 +83,6 @@
             "Riesgo": false
         }
     },
-    "en espera": {},
     "estudiantes": {},
     "trainers": {}
 }
