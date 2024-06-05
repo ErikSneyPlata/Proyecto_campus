@@ -2,6 +2,7 @@ import coordinador, menu_coordinador
 import reportes
 import trainer
 import funciones.rec_funcion as reu
+import time
 
 def main():
     data={}
@@ -21,6 +22,12 @@ def main():
             reu.clear()
             reportes.menu_camper()
         elif opcion == 4:
+            reu.clear()
+            print("SALIENDO...")
+            time.sleep(3)
+            reu.clear()
+            print("ADIOS.")
+            time.sleep(2)
             break 
 
 main()

@@ -1,6 +1,7 @@
 import coordinador
 import funciones.rec_funcion as reu
 import trainer
+import time
 
 def menu_coordi():
     while True:
@@ -77,7 +78,10 @@ def menu_coordi():
             reu.clear()
             trainer.asignar_horario_salon()
         elif opt==14:
+            reu.clear()
             return
         else:
-            reu.clear()
             print("La opcion que ingresaste no esta disponible.")
+            time.sleep(2)
+            reu.clear()
+            
