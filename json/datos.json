@@ -1,355 +1,77 @@
 {
     "campers": {
-        "10092321321": {
-            "Nombres": "Andrey",
-            "Apellidos": "Moreno",
-            "Direccion": "bucarica 20-5",
-            "Acudiente": "johana",
-            "Telefonos movil": 3185453288,
-            "Telefonos fijo": 0,
-            "Estado": "Rechazado",
+        "1005163109": {
+            "Nombres": "Erik",
+            "Apellidos": "Plata",
+            "Direccion": "calle 16dn #10d34",
+            "Acudiente": "christian",
+            "Telefonos movil": 3209114670,
+            "Telefonos fijo": 6407821,
+            "Estado": "En proceso de ingreso",
             "Riesgo": false
         },
-        "10075348312": {
-            "Nombres": "David felipe",
-            "Apellidos": "Andara Cantara",
-            "Direccion": "comuneros calle 12 #17 13",
-            "Acudiente": "yamper",
-            "Telefonos movil": 32109452321,
-            "Telefonos fijo": 0,
-            "Estado": "Rechazado",
-            "Riesgo": false
-        },
-        "1005163105": {
+        "1005163110": {
             "Nombres": "Sneyder",
             "Apellidos": "Arias",
-            "Direccion": "tejar norte 2 bucaramnga",
-            "Acudiente": "plata",
-            "Telefonos movil": 3209114779,
-            "Telefonos fijo": 6407821,
+            "Direccion": "san fransisco bucaramanga",
+            "Acudiente": "alveiro",
+            "Telefonos movil": 32012391282,
+            "Telefonos fijo": 0,
             "Estado": "Rechazado",
+            "Riesgo": false
+        },
+        "100621312348": {
+            "Nombres": "Sebastian",
+            "Apellidos": "Pabon",
+            "Direccion": "lebrija santander",
+            "Acudiente": "javier",
+            "Telefonos movil": 31853724891,
+            "Telefonos fijo": 0,
+            "Estado": "Rechazado",
+            "Riesgo": false
+        },
+        "100413120986": {
+            "Nombres": "esteban",
+            "Apellidos": "aristizabal",
+            "Direccion": "bucaramanga, calle 23 54 6",
+            "Acudiente": "daniela",
+            "Telefonos movil": 31685448532,
+            "Telefonos fijo": 6481238,
+            "Estado": "Rechazado",
+            "Riesgo": false
+        },
+        "982312736": {
+            "Nombres": "Karen",
+            "Apellidos": "Fajardo",
+            "Direccion": "piedecuesta, calle 54 23 5",
+            "Acudiente": "sofia",
+            "Telefonos movil": 31795803232,
+            "Telefonos fijo": 0,
+            "Estado": "En proceso de ingreso",
+            "Riesgo": false
+        },
+        "1093493033": {
+            "Nombres": "",
+            "Apellidos": "galindo",
+            "Direccion": "calle 23d 23 54",
+            "Acudiente": "marcela",
+            "Telefonos movil": 3129058632,
+            "Telefonos fijo": 0,
+            "Estado": "Rechazado",
+            "Riesgo": false
+        },
+        "982563732": {
+            "Nombres": "gabriela",
+            "Apellidos": "ojeda",
+            "Direccion": "calle 67 54 94",
+            "Acudiente": "johana",
+            "Telefonos movil": 3128574893,
+            "Telefonos fijo": 0,
+            "Estado": "En proceso de ingreso",
             "Riesgo": false
         }
     },
     "en espera": {},
-    "estudiantes": {
-        "A1": {
-            "1005163109": {
-                "Nombres": "Erik Sneyder",
-                "Apellidos": "Plata",
-                "Direccion": "calle 16dn 10#34",
-                "Acudiente": "christian",
-                "Telefonos movil": 3209114670,
-                "Telefonos fijo": 0,
-                "Estado": "En proceso de ingreso",
-                "Riesgo": false,
-                "Ruta de aprendizaje": "Ruta Java",
-                "Calificaciones": {
-                    "Fundamentos de programacion": 100,
-                    "Programacion Web": {
-                        "practico": [],
-                        "teorico": [],
-                        "otros": [],
-                        "total": 0
-                    },
-                    "Programacion formal": {
-                        "practico": [],
-                        "teorico": [],
-                        "otros": [],
-                        "total": 0
-                    },
-                    "Bases de datos": {
-                        "practico": [],
-                        "teorico": [],
-                        "otros": [],
-                        "total": 0
-                    },
-                    "Ruta de aprendizaje": {
-                        "practico": [],
-                        "teorico": [],
-                        "otros": [],
-                        "total": 0
-                    }
-                },
-                "Progreso": {
-                    "Fundamentos de programacion": true,
-                    "Programacion Web": false,
-                    "Programacion formal": false,
-                    "Bases de datos": false,
-                    "Ruta de aprendizaje": false
-                },
-                "Malas Calificaciones": {
-                    "Fundamentos de programacion": 0,
-                    "Programacion Web": 0,
-                    "Programacion formal": 0,
-                    "Bases de datos": 0,
-                    "Ruta de aprendizaje": 0
-                }
-            },
-            "232138823": {
-                "Nombres": "javier",
-                "Apellidos": "estivenson",
-                "Direccion": "cll 43 4367",
-                "Acudiente": "gabriel",
-                "Telefonos movil": 3207537432,
-                "Telefonos fijo": 0,
-                "Estado": "En proceso de ingreso",
-                "Riesgo": false,
-                "Ruta de aprendizaje": "Ruta Java",
-                "Calificaciones": {
-                    "Fundamentos de programacion": {
-                        "practico": [
-                            100
-                        ],
-                        "teorico": [
-                            100
-                        ],
-                        "otros": [
-                            100
-                        ],
-                        "total": 100.0
-                    },
-                    "Programacion Web": {
-                        "practico": [],
-                        "teorico": [],
-                        "otros": [],
-                        "total": 0
-                    },
-                    "Programacion formal": {
-                        "practico": [],
-                        "teorico": [],
-                        "otros": [],
-                        "total": 0
-                    },
-                    "Bases de datos": {
-                        "practico": [],
-                        "teorico": [],
-                        "otros": [],
-                        "total": 0
-                    },
-                    "Ruta de aprendizaje": {
-                        "practico": [],
-                        "teorico": [],
-                        "otros": [],
-                        "total": 0
-                    }
-                },
-                "Progreso": {
-                    "Fundamentos de programacion": true,
-                    "Programacion Web": false,
-                    "Programacion formal": false,
-                    "Bases de datos": false,
-                    "Ruta de aprendizaje": false
-                },
-                "Malas Calificaciones": {
-                    "Fundamentos de programacion": 0,
-                    "Programacion Web": 0,
-                    "Programacion formal": 0,
-                    "Bases de datos": 0,
-                    "Ruta de aprendizaje": 0
-                }
-            },
-            "58349123": {
-                "Nombres": "stiven",
-                "Apellidos": "ojeda",
-                "Direccion": "bucarica 20",
-                "Acudiente": "jj",
-                "Telefonos movil": 3183434211,
-                "Telefonos fijo": 0,
-                "Estado": "En proceso de ingreso",
-                "Riesgo": true,
-                "Ruta de aprendizaje": "Ruta Java",
-                "Calificaciones": {
-                    "Fundamentos de programacion": {
-                        "practico": [
-                            50
-                        ],
-                        "teorico": [
-                            50
-                        ],
-                        "otros": [
-                            50
-                        ],
-                        "total": 50.0
-                    },
-                    "Programacion Web": {
-                        "practico": [],
-                        "teorico": [],
-                        "otros": [],
-                        "total": 0
-                    },
-                    "Programacion formal": {
-                        "practico": [],
-                        "teorico": [],
-                        "otros": [],
-                        "total": 0
-                    },
-                    "Bases de datos": {
-                        "practico": [],
-                        "teorico": [],
-                        "otros": [],
-                        "total": 0
-                    },
-                    "Ruta de aprendizaje": {
-                        "practico": [],
-                        "teorico": [],
-                        "otros": [],
-                        "total": 0
-                    }
-                },
-                "Progreso": {
-                    "Fundamentos de programacion": true,
-                    "Programacion Web": false,
-                    "Programacion formal": false,
-                    "Bases de datos": false,
-                    "Ruta de aprendizaje": false
-                },
-                "Malas Calificaciones": {
-                    "Fundamentos de programacion": 1,
-                    "Programacion Web": 0,
-                    "Programacion formal": 0,
-                    "Bases de datos": 0,
-                    "Ruta de aprendizaje": 0
-                }
-            },
-            "10074123123": {
-                "Nombres": "ryan",
-                "Apellidos": "david",
-                "Direccion": "san fransisco calle 14#25 20",
-                "Acudiente": "fabian",
-                "Telefonos movil": 3162306575,
-                "Telefonos fijo": 0,
-                "Estado": "En proceso de ingreso",
-                "Riesgo": true,
-                "Ruta de aprendizaje": "Ruta Java",
-                "Calificaciones": {
-                    "Fundamentos de programacion": {
-                        "practico": [
-                            10
-                        ],
-                        "teorico": [
-                            10
-                        ],
-                        "otros": [
-                            10
-                        ],
-                        "total": 10.0
-                    },
-                    "Programacion Web": {
-                        "practico": [],
-                        "teorico": [],
-                        "otros": [],
-                        "total": 0
-                    },
-                    "Programacion formal": {
-                        "practico": [],
-                        "teorico": [],
-                        "otros": [],
-                        "total": 0
-                    },
-                    "Bases de datos": {
-                        "practico": [],
-                        "teorico": [],
-                        "otros": [],
-                        "total": 0
-                    },
-                    "Ruta de aprendizaje": {
-                        "practico": [],
-                        "teorico": [],
-                        "otros": [],
-                        "total": 0
-                    }
-                },
-                "Progreso": {
-                    "Fundamentos de programacion": true,
-                    "Programacion Web": false,
-                    "Programacion formal": false,
-                    "Bases de datos": false,
-                    "Ruta de aprendizaje": false
-                },
-                "Malas Calificaciones": {
-                    "Fundamentos de programacion": 1,
-                    "Programacion Web": 0,
-                    "Programacion formal": 0,
-                    "Bases de datos": 0,
-                    "Ruta de aprendizaje": 0
-                }
-            },
-            "98231512": {
-                "Nombres": "duvan",
-                "Apellidos": "savedra",
-                "Direccion": "bucaramanga calle 19",
-                "Acudiente": "rodrigo",
-                "Telefonos movil": 3172390239,
-                "Telefonos fijo": 0,
-                "Estado": "En proceso de ingreso",
-                "Riesgo": true,
-                "Ruta de aprendizaje": "Ruta Java",
-                "Calificaciones": {
-                    "Fundamentos de programacion": {
-                        "practico": [
-                            40
-                        ],
-                        "teorico": [
-                            40
-                        ],
-                        "otros": [
-                            40
-                        ],
-                        "total": 40.0
-                    },
-                    "Programacion Web": {
-                        "practico": [],
-                        "teorico": [],
-                        "otros": [],
-                        "total": 0
-                    },
-                    "Programacion formal": {
-                        "practico": [],
-                        "teorico": [],
-                        "otros": [],
-                        "total": 0
-                    },
-                    "Bases de datos": {
-                        "practico": [],
-                        "teorico": [],
-                        "otros": [],
-                        "total": 0
-                    },
-                    "Ruta de aprendizaje": {
-                        "practico": [],
-                        "teorico": [],
-                        "otros": [],
-                        "total": 0
-                    }
-                },
-                "Progreso": {
-                    "Fundamentos de programacion": true,
-                    "Programacion Web": false,
-                    "Programacion formal": false,
-                    "Bases de datos": false,
-                    "Ruta de aprendizaje": false
-                },
-                "Malas Calificaciones": {
-                    "Fundamentos de programacion": 1,
-                    "Programacion Web": 0,
-                    "Programacion formal": 0,
-                    "Bases de datos": 0,
-                    "Ruta de aprendizaje": 0
-                }
-            }
-        }
-    },
-    "trainers": {
-        "123456789": {
-            "Nombres": "Juan",
-            "Apellidos": "Marino",
-            "Direccion": "calle 34#35 39",
-            "Telefonos movil": 3192312542,
-            "Telefonos fijo": 0,
-            "Estado": "Contratado",
-            "Grupos": [],
-            "grupos": "A1"
-        }
-    }
+    "estudiantes": {},
+    "trainers": {}
 }

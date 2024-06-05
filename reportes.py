@@ -109,5 +109,4 @@ def mostrar_resultados_modulos():
         
     reu.wait_for_keypress()
     reu.clear()
-       
-mostrar_resultados_modulos()
+

@@ -143,7 +143,8 @@ def mostrar_campers_inscritos():
     cantidad_de_inscritos=len(lista_de_inscritos)
     if cantidad_de_inscritos>0:
         for doc, info in data["campers"].items():
-            print(f"Candidato {cont}")
+            print(f"----------Candidato {cont}----------")
+            print(f"documento: {doc}")
             print(f"Nombres: {info["Nombres"]}")
             print(f"Apellidos: {info["Apellidos"]}")
             print(f"Direccion: {info["Direccion"]}")

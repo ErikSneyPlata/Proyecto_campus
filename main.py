@@ -34,5 +34,4 @@ def main():
             print("Opcion no valida")
             time.sleep(1)
             reu.clear()
-
 main()
