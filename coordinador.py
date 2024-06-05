@@ -2,7 +2,8 @@ import json
 import os as system
 import random
 import funciones.rec_funcion as reu
-
+import time
+import trainer
         
 def registrar_camper():
     while True:        
@@ -50,16 +51,26 @@ def registrar_camper():
             print("***********************************************")
             reu.guardar_actualizar_json(data)
             print("Registro guardado correctamente.")
+            time.sleep(2)
+            reu.clear()
             print("***********************************************")
         else:
             print("***********************************************")
             print("Este camper ya se encuentra registrado.")
+            time.sleep(2)
+            reu.clear()
             print("***********************************************")
                   
         while True:
             rep = input("¿Desea agregar otro camper para presentar examen? (1. Si, 2. No): ")
-            if rep == '1': break
-            elif rep == '2': return
+            if rep == '1': 
+                time.sleep(0.5)
+                reu.clear()
+                break
+            elif rep == '2': 
+                time.sleep(0.5)
+                reu.clear()
+                return
             else: print("Opción no válida. Por favor, ingrese 1 para Sí o 2 para No.")
 
 def modificar_camper():
@@ -108,7 +119,8 @@ def modificar_camper():
                 print("***********************************************")
                 print("Modificaciones guardadas.")
                 print("***********************************************")
-                
+                time.sleep(2)
+                reu.clear()
                 break
             else:
                 print("Opción no válida. Por favor, elige una opción del 1 al 7.")
@@ -116,6 +128,8 @@ def modificar_camper():
         print("***********************************************")
         print("No se encontró un camper con ese documento.")
         print("***********************************************")
+        time.sleep(3)
+        reu.clear()
 
 def mostrar_campers_inscritos():
     data = reu.leer_crear_json()
@@ -138,6 +152,8 @@ def mostrar_campers_inscritos():
             print(f"Telefonos fijo: {info["Telefonos fijo"]}")
             print(f"Estado: {info["Estado"]}\n")
             cont+=1
+        reu.wait_for_keypress()
+        reu.clear()
         return
     else:
         print("No hay posibles campers incritos para el examen de admision")
@@ -165,7 +181,8 @@ def retirar_camper():
                 print("***********************************************")
                 print("\nCambio de estado guardado correctamente.")
                 print("***********************************************")
-                
+                time.sleep(2)
+                reu.clear()
             else:
                 print("Opción no válida. Por favor, elige 1 o 2.")
         except ValueError:
@@ -174,6 +191,8 @@ def retirar_camper():
         print("***********************************************")
         print("No se encontró un camper con ese documento.")
         print("***********************************************")
+        time.sleep(2)
+        reu.clear()
         
 def presentar_pruebas():
     print("********************************************************")
@@ -186,10 +205,15 @@ def presentar_pruebas():
             if n==1: data["campers"][doc]["Estado"] = "Rechazado"
             if n==2: data["campers"][doc]["Estado"] = "En proceso de ingreso"
             reu.guardar_actualizar_json(data)
+    time.sleep(1)
+            
     print("********************************************************")
     print("              ¡Pruebas finalizadas!")
     print("Ya puede revisar los resultados de los candidatos inscritos")
     print("********************************************************")
+    time.sleep(4)
+    reu.clear()
+    
         
 def rechazados():
     data = reu.leer_crear_json()
@@ -216,10 +240,14 @@ def rechazados():
         print("***********************************************")
         print("Todos los candidatos rechazados han sido borrados.")
         print("***********************************************")
+        time.sleep(3)
+        reu.clear()
     if opc=="2":
         print("********************************************************")
         print("NOTA: Siempre que ingreses a revisar los datos lo podras eliminarlos cuando quieras.")
         print("********************************************************")
+        time.sleep(3)
+        reu.clear()
         return
     
 def esperando_para_ingresar():
@@ -249,6 +277,8 @@ def esperando_para_ingresar():
     print("********************************************************")
     print("Todos los candidatos en proceso de ingreso han sido movidos a la lista de espera.")
     print("********************************************************")
+    reu.wait_for_keypress()
+    reu.clear()
 
 def mostrar_est_espera():
     print("********************************************************")
@@ -266,14 +296,18 @@ def mostrar_est_espera():
             print(f"Direccion: {info["Direccion"]}")
             print(f"Acudiente: {info["Acudiente"]}")
             print(f"Telefonos movil: {info["Telefonos movil"]}")
-            print(f"Telefonos fijo: {info["Telefono fijo"]}")
+            print(f"Telefonos fijo: {info["Telefonos fijo"]}")
             print(f"Estado: {info["Estado"]}\n")
             cont+=1
+        reu.wait_for_keypress()
+        reu.clear()
         return
     else:
         print("********************************************************")
         print("No hay posibles campers en espera para ingresar a estudiar")
         print("********************************************************")
+        time.sleep(3)
+        reu.clear()
         
 def asignar_salon():
     data = reu.leer_crear_json()
@@ -303,7 +337,7 @@ def asignar_salon():
         for i in range(estudiantes_a_asignar):
             doc, info = data_list_espera[i]
             data["estudiantes"][nombre_salon][doc] = info
-        
+            
         # Eliminar los estudiantes de la lista de espera
         data_filtrada = {}
         for i, (doc, info) in enumerate(data["en espera"].items()):
@@ -311,16 +345,21 @@ def asignar_salon():
                 data_filtrada[doc] = info
         data["en espera"] = data_filtrada
         
-        
-        
+        logistica=trainer.leer_logistica_campus()
+        logistica["grupos"].append(nombre_salon)
+        trainer.guardar_logistica_campus(logistica)
         reu.guardar_actualizar_json(data)
         print("********************************************************")
         print(f"Se asignaron {estudiantes_a_asignar} estudiantes al salón {nombre_salon}.")
         print("********************************************************")
+        reu.wait_for_keypress()
+        reu.clear()
     else:
         print("********************************************************")
         print("Aún no hay suficientes estudiantes para asignar un grupo.")
         print("********************************************************")
+        time.sleep(3)
+        reu.clear()
     
 def mostrar_grupos():
     data = reu.leer_crear_json()
@@ -330,10 +369,14 @@ def mostrar_grupos():
         for grupo in data["estudiantes"].keys():
             print(f"{cont}. Grupo {grupo}")
             cont += 1
+        reu.wait_for_keypress()
+        reu.clear()
     else:
         print("***********************************************")
         print("No hay grupos registrados.")
         print("***********************************************")
+        time.sleep(3)
+        reu.clear()
     
 def mostrar_estudiantes_de_un_grupo():
     data = reu.leer_crear_json()
@@ -357,72 +400,88 @@ def mostrar_estudiantes_de_un_grupo():
                 print(f"Dirección: {info['Direccion']}")
                 print(f"Acudiente: {info['Acudiente']}")
                 print(f"Teléfono móvil: {info['Telefonos movil']}")
-                print(f"Teléfono fijo: {info['Telefono fijo']}")
+                print(f"Teléfono fijo: {info['Telefonos fijo']}")
                 print(f"Estado: {info['Estado']}")
                 print(f"Riesgo: {info['Riesgo']}\n")
+            reu.wait_for_keypress()
+            reu.clear()
         else:
             print(f"No hay estudiantes en el grupo {nombre_salon}.")
     else:
         print("***********************************************")
         print(f"No se encontró el grupo {nombre_salon}.")
         print("***********************************************")
+        time.sleep(3)
+        reu.clear()
 
 #SE ASIGNA LA RUTA DE APRENDIZAJE BACKEND AL FINALIZAR LOS MODULOS.
 def asignar_ruta():
-    data = reu.leer_crear_json()
-    
-    if "estudiantes" not in data or not data["estudiantes"]:
-        print("No hay grupos registrados.")
-        return
-    
-    nombre_salon = input("Ingrese el nombre del grupo (ej: A1, A2): ")
-    
-    if nombre_salon not in data["estudiantes"]:
-        print(f"No se encontró el grupo {nombre_salon}.")
-        return
-    
-    print("Rutas de entrenamiento disponibles:")
-    print("1. Ruta NodeJS")
-    print("2. Ruta Java")
-    print("3. Ruta NetCore")
-    
-    opcion = input("Seleccione la ruta de entrenamiento (1, 2, o 3): ")
-    
-    if opcion == "1":
-        ruta = "Ruta NodeJS"
-    elif opcion == "2":
-        ruta = "Ruta Java"
-    elif opcion == "3":
-        ruta = "Ruta NetCore"
-    else:
-        print("Opción no válida.")
-        return
-    
-    for doc, info in data["estudiantes"][nombre_salon].items():
-        info["Ruta de aprendizaje"] = ruta
+    try:
+        data = reu.leer_crear_json()
         
-    # Asigna los diccionarios para introducir la información de los módulos
-    modulos = [
-        "Fundamentos de programacion",
-        "Programacion Web",
-        "Programacion formal",
-        "Bases de datos",
-        "Ruta de aprendizaje"
-    ]
+        if "estudiantes" not in data or not data["estudiantes"]:
+            raise ValueError("No hay grupos registrados.")
+        
+        nombre_salon = input("Ingrese el nombre del grupo (ej: A1, A2): ")
+        
+        if nombre_salon not in data["estudiantes"]:
+            raise ValueError(f"No se encontró el grupo {nombre_salon}.")
+            time.sleep(0.5)
+            reu.clear()
+            
+        
+        print("Rutas de entrenamiento disponibles:")
+        print("1. Ruta NodeJS")
+        print("2. Ruta Java")
+        print("3. Ruta NetCore")
+        
+        opcion = input("Seleccione la ruta de entrenamiento (1, 2, o 3): ")
+        
+        if opcion == "1":
+            ruta = "Ruta NodeJS"
+        elif opcion == "2":
+            ruta = "Ruta Java"
+        elif opcion == "3":
+            ruta = "Ruta NetCore"
+        else:
+            raise ValueError("Opción no válida.")
+        
+        for doc, info in data["estudiantes"][nombre_salon].items():
+            info["Ruta de aprendizaje"] = ruta
+            
+        # Asigna los diccionarios para introducir la información de los módulos
+        modulos = [
+            "Fundamentos de programacion",
+            "Programacion Web",
+            "Programacion formal",
+            "Bases de datos",
+            "Ruta de aprendizaje"
+        ]
 
-    for grupo in data["estudiantes"].values():
-        for estudiante in grupo.values():
-            if "Calificaciones" not in estudiante:
-                estudiante["Calificaciones"] = {modulo: {"practico":[],"teorico":[],"otros":[],"total":0} for modulo in modulos}
-            if "Progreso" not in estudiante:
-                estudiante["Progreso"] = {modulo: False for modulo in modulos}
-            if "Malas Calificaciones" not in estudiante:
-                estudiante["Malas Calificaciones"] = {modulo: 0 for modulo in modulos}
-    
-    reu.guardar_actualizar_json(data)
-    print("***********************************************")
-    print(f"Se asignó la {ruta} al grupo {nombre_salon}.")
-    print("***********************************************")
+        for grupo in data["estudiantes"].values():
+            for estudiante in grupo.values():
+                if "Calificaciones" not in estudiante:
+                    estudiante["Calificaciones"] = {modulo: {"practico":[],"teorico":[],"otros":[],"total":0} for modulo in modulos}
+                if "Progreso" not in estudiante:
+                    estudiante["Progreso"] = {modulo: False for modulo in modulos}
+                if "Malas Calificaciones" not in estudiante:
+                    estudiante["Malas Calificaciones"] = {modulo: 0 for modulo in modulos}
+        
+        reu.guardar_actualizar_json(data)
+        print("***********************************************")
+        print(f"Se asignó la {ruta} al grupo {nombre_salon}.")
+        print("***********************************************")
+        time.sleep(3)
+        reu.clear()
+        
+    except ValueError as e:
+        print(f"Error: {e}")
+    except Exception as e:
+        print(f"Se produjo un error inesperado: {e}")
+
+# Ejemplo de llamada a la función (puedes comentar esto cuando lo integres en tu sistema)
+# asignar_ruta()
+
     
     
     #ASIGNA LOS DICCIONARIOS PARA INTRODUCIR LA INFORMACION DE LOS MODULOS
@@ -436,12 +495,16 @@ def calificar_estudiantes():
 
     if "estudiantes" not in data or not data["estudiantes"]:
         print("No hay grupos registrados.")
+        time.sleep(3)
+        reu.clear()
         return
     
     nombre_salon = input("Ingrese el nombre del grupo (ej: A1, A2): ")
 
     if nombre_salon not in data["estudiantes"]:
         print(f"No se encontró el grupo {nombre_salon}.")
+        time.sleep(2)
+        reu.clear()
         return
 
     print("Módulos disponibles para calificar:")
@@ -463,6 +526,8 @@ def calificar_estudiantes():
 
     if opcion not in modulos:
         print("Opción no válida.")
+        time.sleep(1)
+        reu.clear()
         return
 
     modulo = modulos[opcion]
@@ -474,7 +539,7 @@ def calificar_estudiantes():
             calificacion_practico = input(f"Ingrese la calificación práctica de {info['Nombres']} {info['Apellidos']} para {modulo} (0-100): ")
             calificacion_teorico = input(f"Ingrese la calificación teórica de {info['Nombres']} {info['Apellidos']} para {modulo} (0-100): ")
             calificacion_otros = input(f"Ingrese otras calificaciones de {info['Nombres']} {info['Apellidos']} para {modulo} (0-100): ")
-
+            print(" ")
             try:
                 calificacion_practico = int(calificacion_practico)
                 calificacion_teorico = int(calificacion_teorico)
@@ -503,6 +568,7 @@ def calificar_estudiantes():
                     estudiantes_a_eliminar.append(doc)
             else:
                 info["Malas Calificaciones"][modulo] = 0  # Resetear si pasa
+                info["Riesgo"] = False
 
         else:
             info["Progreso"][modulo] = True
@@ -513,5 +579,8 @@ def calificar_estudiantes():
         del data["estudiantes"][nombre_salon][doc]
 
     reu.guardar_actualizar_json(data)
+    time.sleep(1)
     print(f"Se actualizaron las calificaciones para el grupo {nombre_salon}.")
+    time.sleep(3)
+    reu.clear()
     

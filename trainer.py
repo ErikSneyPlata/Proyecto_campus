@@ -1,6 +1,7 @@
 import json
 import coordinador
 import funciones.rec_funcion as reu
+import time
 
 
 def menu_trainer():
@@ -14,7 +15,7 @@ def menu_trainer():
         print("1. Registrar trainer")
         print("2. Modificar trainer")
         print("3. Retirar trainer")
-        print("4. Asignar horario y salón de clases a trainer")
+        print("4. Asignar grupo a trainer")
         print("5. Mostrar trainers")
         
         print("********************************************************")
@@ -31,32 +32,46 @@ def menu_trainer():
         try:
             opt = int(input("Ingrese su opción: "))
             if opt == 1:
+                reu.clear()
                 registrar_trainer()
             elif opt == 2:
+                reu.clear()
                 modificar_trainer()
             elif opt == 3:
+                reu.clear()
                 retirar_trainer()
             elif opt == 4:
-                asignar_horario_salon()
+                reu.clear()
+                asignar_grupo_trainer()
             elif opt == 5:
+                reu.clear()
                 mostrar_trainers()
             elif opt == 6:
+                reu.clear()
                 coordinador.calificar_estudiantes()
             elif opt == 7:
+                reu.clear()
                 modificar_notas_estudiante()
             elif opt == 8:
+                reu.clear()
                 estudiantes_expulsados()
             elif opt == 9:
+                reu.clear()
                 retirar_voluntario_deuda_expulsion()
             elif opt == 10:
+                reu.clear()
                 return
             else:
+                reu.clear()
                 print("La opción que ingresaste no está disponible.")
         except ValueError:
+            reu.clear()
             print("Por favor, ingrese un número válido.")
         except Exception as e:
+            reu.clear()
             print(f"Ocurrió un error: {e}")
             
+#datos de salones y horarios de salones de campus
 #***************************************************************            
 def guardar_logistica_campus(data):
     with open("json//campus.json","w") as guardar:
@@ -134,15 +149,23 @@ def registrar_trainer():
             reu.guardar_actualizar_json(data)
             print("Registro guardado correctamente.")
             print("***********************************************")
+            time.sleep(2)
+            reu.clear()
         else:
             print("***********************************************")
             print("Ya se encuentra registrado.")
             print("***********************************************")
+            time.sleep(2)
+            reu.clear()
             
         try:      
             rep = input("¿Desea agregar otro trainer? (1. Si, 2. No): ")
-            if rep == '1': break
-            elif rep == '2': break
+            if rep == '1': 
+                reu.clear()
+                continue
+            elif rep == '2': 
+                reu.clear()
+                return
         except Exception: print("Opción no válida. Por favor, ingrese 1 para Sí o 2 para No.")
             
 def modificar_trainer():
@@ -191,6 +214,8 @@ def modificar_trainer():
                 print("***********************************************")
                 print("Modificaciones guardadas.")
                 print("***********************************************")
+                time.sleep(2)
+                reu.clear()
                 
                 break
             else:
@@ -199,6 +224,8 @@ def modificar_trainer():
         print("***********************************************")
         print("No se encontró un camper con ese documento.")
         print("***********************************************")
+        time.sleep(3)
+        reu.clear()
     
 def retirar_trainer():
     data = reu.leer_crear_json()
@@ -216,6 +243,8 @@ def retirar_trainer():
                 print("***********************************************")
                 print("\nCambio de estado guardado correctamente.")
                 print("***********************************************")
+                time.sleep(2)
+                reu.clear()
                 
             elif opt == 2:
                 data["trainers"][doc]["Estado"] = "Terminacion de contrato"
@@ -223,6 +252,8 @@ def retirar_trainer():
                 print("***********************************************")
                 print("\nCambio de estado guardado correctamente.")
                 print("***********************************************")
+                time.sleep(2)
+                reu.clear()
             elif opt == 3: return    
             
             else:
@@ -232,7 +263,9 @@ def retirar_trainer():
     else:
         print("***********************************************")
         print("No se encontró un Trainer con ese documento.")
-        print("***********************************************")     
+        print("***********************************************")
+        time.sleep(3)
+        reu.clear()     
         
 def asignar_horario_salon():
     data = reu.leer_crear_json()
@@ -282,6 +315,8 @@ def asignar_horario_salon():
                 logistica[elec_salon][elec_horario] = grupo_selec
                 guardar_logistica_campus(logistica)
                 print(f"Horario {elec_horario} asignado al grupo {grupo_selec} en el salón {elec_salon}.")
+                time.sleep(3)
+                reu.clear()
             else:
                 print("La opción indicada no es válida o el horario ya está ocupado.")
         else:
@@ -297,7 +332,7 @@ def mostrar_trainers():
     data = reu.leer_crear_json()
     
     print("********************************************************")
-    print("                 LISTA CAMPER REGISTRADOS")
+    print("                LISTA TRAINERS REGISTRADOS")
     print("********************************************************")    
 
     cont=1
@@ -306,6 +341,7 @@ def mostrar_trainers():
     if cantidad_de_trainers>0:
         for doc, info in data["trainers"].items():
             print(f"TRAINER {cont}:")
+            print(f"Documento: {doc}")
             print(f"Nombres: {info["Nombres"]}")
             print(f"Apellidos: {info["Apellidos"]}")
             print(f"Direccion: {info["Direccion"]}")
@@ -313,9 +349,13 @@ def mostrar_trainers():
             print(f"Telefonos fijo: {info["Telefonos fijo"]}")
             print(f"Estado: {info["Estado"]}\n")
             cont+=1
+        reu.wait_for_keypress()
+        reu.clear()
         return
     else:
         print("No hay trainers registrados")
+        time.sleep(3)
+        reu.clear()
      
 
 def modificar_notas_estudiante():
@@ -385,6 +425,8 @@ def modificar_notas_estudiante():
     
     print(f"Se actualizó la calificación del estudiante {estudiante['Nombres']} {estudiante['Apellidos']} en el módulo {modulo}.")
 
+    time.sleep(3)
+    reu.clear()
 
 def estudiantes_expulsados():
     data = reu.leer_crear_json()  # Leer los datos del JSON
@@ -411,8 +453,12 @@ def estudiantes_expulsados():
             print(f"Apellidos: {estudiante['Apellidos']}")
             print(f"Grupo: {estudiante['Grupo']}")
             print("------------------------------------------------------------")
+        reu.wait_for_keypress()
+        reu.clear()
     else:
         print("No hay estudiantes expulsados por rendimiento académico.")
+        time.sleep(3)
+        reu.clear()
         
     print("************************************************************")
     
@@ -444,8 +490,11 @@ def retirar_voluntario_deuda_expulsion():
                 reu.guardar_actualizar_json(data)
                 print("***********************************************")
                 print("\nCambio de estado guardado correctamente.")
-                print("***********************************************")
+                print("\nSe ha generado una deuda por el retiro voluntario.")
                 
+                print("***********************************************")
+                time.sleep(2)
+                reu.clear()
             elif opt == 2:
                 estudiante_encontrado["Estado"] = "Expulsado"
                 
@@ -453,6 +502,8 @@ def retirar_voluntario_deuda_expulsion():
                 print("***********************************************")
                 print("\nCambio de estado guardado correctamente.")
                 print("***********************************************")
+                time.sleep(2)
+                reu.clear()
             elif opt == 3:
                 return
                 
@@ -464,4 +515,56 @@ def retirar_voluntario_deuda_expulsion():
         print("***********************************************")
         print("No se encontró un camper con ese documento.")
         print("***********************************************")
+        time.sleep(2)
+        reu.clear()
+    
+def asignar_grupo_trainer():
+    while True:
+        mostrar_trainers()
+        
+        logistica=leer_logistica_campus()
+        data=reu.leer_crear_json()
+        try:
+            doc=int(input("ingrese el documento del trainer al cual quiere agregarle grupo: "))
+        except ValueError:
+            print("Digita por favor un documento de id valido de numeros.")
+        doc=str(doc)
+        if doc in data["trainers"]:
+            print("Lo siguiente son los grupos disponibles:")
+            if len(logistica["grupos"]) !=0:
+                for i in range(len(logistica["grupos"])):
+                    print(f"{i+1}. {logistica["grupos"][i]}")
+                    
+                print(f"¿Cual grupo quiere asignar para el trainer verificado? (1-{(len(logistica["grupos"]))})")
+                try:
+                    elec_grupo=int(input("\nDigite su opcion: "))
+                except ValueError:
+                    print("Digita por favor numeros para que sea valido.")
+                    
+                data["trainers"][doc]["grupos"]=logistica["grupos"][elec_grupo-1]
+                
+                logistica["grupos"].pop(elec_grupo-1)
+                
+                guardar_logistica_campus(logistica)
+                reu.guardar_actualizar_json(data)
+                
+                print(f"Se asigno el grupo a el trainer {data["trainers"][doc]["Nombres"]}")
+                print(f"Grupos a su disposicion: {data["trainers"][doc]["grupos"]}\n")
+                time.sleep(3)
+                reu.clear()
+                return
+            else:
+                print("\nNo hay grupos disponibles para agregar\n")
+                time.sleep(3)
+                reu.clear()
+        else:
+            print(f"Trainer con documento {doc} no fue encontrado o no existe.")
+            time.sleep(3)
+            reu.clear()
+        
+
+        
+            
+        
+        
     

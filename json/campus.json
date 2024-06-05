@@ -1,0 +1,18 @@
+{
+    "artemis": {
+        "6AM": "A1",
+        "10AM": null,
+        "2PM": null
+    },
+    "sputnik": {
+        "6AM": null,
+        "10AM": null,
+        "2PM": null
+    },
+    "kepler": {
+        "6AM": null,
+        "10AM": null,
+        "2PM": null
+    },
+    "grupos": []
+}

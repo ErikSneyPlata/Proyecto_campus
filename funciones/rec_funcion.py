@@ -39,3 +39,7 @@ def clear():
         os.system('cls')
     else:  # Para sistemas tipo Unix (Linux, Mac)
         os.system('clear')
+        
+def wait_for_keypress():
+    print("Presiona cualquier tecla para continuar...")
+    os.system('pause >nul')
