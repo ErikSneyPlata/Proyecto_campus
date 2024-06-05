@@ -36,52 +36,58 @@ def menu_coordi():
         print("***********************************************")
         print("14. REGRESAR --> Menu principal")
         print("***********************************************\n")
+        try:
+            opt=int(input("ingrese su opcion: "))
+            if opt==1:
+                reu.clear()
+                coordinador.registrar_camper()
+            elif opt==2:
+                reu.clear()
+                coordinador.mostrar_campers_inscritos()
+            elif opt==3:
+                reu.clear()
+                coordinador.modificar_camper()
+            elif opt==4:
+                reu.clear()
+                coordinador.retirar_camper()
+            elif opt==5:
+                reu.clear()
+                coordinador.presentar_pruebas()
+            elif opt==6:
+                reu.clear()
+                coordinador.rechazados()
+            elif opt==7:
+                reu.clear()
+                coordinador.esperando_para_ingresar()
+            elif opt==8:
+                reu.clear()
+                coordinador.mostrar_est_espera()
+            elif opt==9:
+                reu.clear()
+                coordinador.asignar_salon()
+            elif opt==10:
+                reu.clear()
+                coordinador.mostrar_grupos()
+            elif opt==11:
+                reu.clear()
+                coordinador.mostrar_estudiantes_de_un_grupo()
+            elif opt==12:
+                reu.clear()
+                coordinador.asignar_ruta()
+            elif opt==13:
+                reu.clear()
+                trainer.asignar_horario_salon()
+            elif opt==14:
+                reu.clear()
+                return
+            else:
+                print("La opcion que ingresaste no esta disponible.")
+                time.sleep(2)
+                reu.clear()
+        except Exception:
+            print("Error introducciste un valor no valido")
+            time.sleep(1)
+            reu.clear()
+            
         
-        opt=int(input("ingrese su opcion: "))
-        if opt==1:
-            reu.clear()
-            coordinador.registrar_camper()
-        elif opt==2:
-            reu.clear()
-            coordinador.mostrar_campers_inscritos()
-        elif opt==3:
-            reu.clear()
-            coordinador.modificar_camper()
-        elif opt==4:
-            reu.clear()
-            coordinador.retirar_camper()
-        elif opt==5:
-            reu.clear()
-            coordinador.presentar_pruebas()
-        elif opt==6:
-            reu.clear()
-            coordinador.rechazados()
-        elif opt==7:
-            reu.clear()
-            coordinador.esperando_para_ingresar()
-        elif opt==8:
-            reu.clear()
-            coordinador.mostrar_est_espera()
-        elif opt==9:
-            reu.clear()
-            coordinador.asignar_salon()
-        elif opt==10:
-            reu.clear()
-            coordinador.mostrar_grupos()
-        elif opt==11:
-            reu.clear()
-            coordinador.mostrar_estudiantes_de_un_grupo()
-        elif opt==12:
-            reu.clear()
-            coordinador.asignar_ruta()
-        elif opt==13:
-            reu.clear()
-            trainer.asignar_horario_salon()
-        elif opt==14:
-            reu.clear()
-            return
-        else:
-            print("La opcion que ingresaste no esta disponible.")
-            time.sleep(2)
-            reu.clear()
             
