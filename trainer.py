@@ -101,7 +101,8 @@ def leer_logistica_campus():
                 "6AM":None,
                 "10AM":None,
                 "2PM":None
-                       }
+                       },
+            "grupos":[]
         }
             
 #***************************************************************
@@ -362,7 +363,10 @@ def modificar_notas_estudiante():
     data = reu.leer_crear_json()
 
     if "estudiantes" not in data or not data["estudiantes"]:
+        reu.clear
         print("No hay grupos registrados.")
+        time.sleep(3)
+        reu.clear()
         return
     
     print("Grupos disponibles:")
@@ -557,12 +561,12 @@ def asignar_grupo_trainer():
                 print("\nNo hay grupos disponibles para agregar\n")
                 time.sleep(3)
                 reu.clear()
+                return
         else:
             print(f"Trainer con documento {doc} no fue encontrado o no existe.")
             time.sleep(3)
             reu.clear()
-        
-
+            return
         
             
         

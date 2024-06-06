@@ -12,7 +12,7 @@ def menu_reportes():
         print("3.Trainers actuales")
         print("4.campers en condicional")
         print("5.Campers y trainers en rutas de entrenamiento")
-        print("6.cuantos campers perdieron y aprobaron cada uno de los modulos(por ruta y trainer)")
+        print("6.cuantos campers perdieron y aprobaron cada uno de los modulos(por ruta)")
         print("***********************************************")
         print("7. REGRESAR --> Menu principal")
         print("***********************************************\n")        

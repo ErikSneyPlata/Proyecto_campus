@@ -1,5 +1,4 @@
 import funciones.rec_funcion as reu
-import menu_coordinador
 import main_coordinacion as principal
 import json
 import time
@@ -53,14 +52,19 @@ def security_coordinacion():
                             print("\nCONTRASEÑA INCORRECTA, INTENTALO NUEVAMENTE.\n")
                             print("********************************************************")
                             time.sleep(2)
-                            reu.clear()
-                            
-                            
-                        
-            if interaccion =="2":
+                            reu.clear()          
+            elif interaccion =="2":
                 time.sleep(2)
                 reu.clear()
-                return 
+                return
+            else:
+                reu.clear()
+                print(f"la opcion que ingresaste no es vaida.") 
+                time.sleep(2)
+                reu.clear()
         except Exception as error:
+            reu.clear()
             print("\nla opcion que ingresaste no es valida\n")
+            time.sleep(2)
+            reu.clear()
             

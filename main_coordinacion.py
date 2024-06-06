@@ -14,7 +14,7 @@ def main():
         print("************************************************************")
         print("                     MENU PRINCIPAL")
         print("************************************************************")
-        print("¿Que tipo de usuario eres?\n1. MODULO CAMPERS\n2. MODULO TRAINERS\n3. MODULO REPORTES\n4. SALIR")
+        print("¿A qué modulo quieres ingresar?\n\n1. MODULO CAMPERS\n2. MODULO TRAINERS\n3. MODULO REPORTES\n4. SALIR")
         try:
             opcion = int(input("\n\nIngrese su eleccion(1-4): "))
             if opcion == 1:
@@ -36,8 +36,9 @@ def main():
                 reu.clear()
                 break 
             else: 
+                reu.clear()
                 print("Opcion no valida")
-                time.sleep(1)
+                time.sleep(2)
                 reu.clear()
         except Exception:
             print("Error introducciste un valor no valido")

@@ -29,26 +29,6 @@
             "Telefonos fijo": 6481238,
             "Estado": "Rechazado",
             "Riesgo": false
-        },
-        "1093493033": {
-            "Nombres": "",
-            "Apellidos": "galindo",
-            "Direccion": "calle 23d 23 54",
-            "Acudiente": "marcela",
-            "Telefonos movil": 3129058632,
-            "Telefonos fijo": 0,
-            "Estado": "Inscrito",
-            "Riesgo": false
-        },
-        "1005123121": {
-            "Nombres": "Erik",
-            "Apellidos": "Plata",
-            "Direccion": "calle 23 54 54",
-            "Acudiente": "fgdgfd",
-            "Telefonos movil": 5443453,
-            "Telefonos fijo": 4324,
-            "Estado": "Inscrito",
-            "Riesgo": false
         }
     },
     "en espera": {
@@ -81,8 +61,48 @@
             "Telefonos fijo": 0,
             "Estado": "En proceso de ingreso",
             "Riesgo": false
+        },
+        "1093493033": {
+            "Nombres": "",
+            "Apellidos": "galindo",
+            "Direccion": "calle 23d 23 54",
+            "Acudiente": "marcela",
+            "Telefonos movil": 3129058632,
+            "Telefonos fijo": 0,
+            "Estado": "En proceso de ingreso",
+            "Riesgo": false
+        },
+        "1005123121": {
+            "Nombres": "Erik",
+            "Apellidos": "Plata",
+            "Direccion": "calle 23 54 54",
+            "Acudiente": "fgdgfd",
+            "Telefonos movil": 5443453,
+            "Telefonos fijo": 4324,
+            "Estado": "En proceso de ingreso",
+            "Riesgo": false
+        },
+        "45354": {
+            "Nombres": "gkjdjg",
+            "Apellidos": "trhtrh",
+            "Direccion": "gngfn",
+            "Acudiente": "gnfnhfg",
+            "Telefonos movil": 34545,
+            "Telefonos fijo": 4,
+            "Estado": "En proceso de ingreso",
+            "Riesgo": false
         }
     },
     "estudiantes": {},
-    "trainers": {}
+    "trainers": {
+        "123456789": {
+            "Nombres": "Juan",
+            "Apellidos": "Marino",
+            "Direccion": "cll 34 33 33",
+            "Telefonos movil": 3123898565,
+            "Telefonos fijo": 0,
+            "Estado": "Contratado",
+            "Grupos": []
+        }
+    }
 }

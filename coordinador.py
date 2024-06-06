@@ -4,6 +4,41 @@ import random
 import funciones.rec_funcion as reu
 import time
 import trainer
+
+#***************************************************************            
+def guardar_logistica_campus(data):
+    with open("json//campus.json","w") as guardar:
+        json.dump(data,guardar,indent=4)
+    print("\nGUARDANDO...\n")
+
+def leer_logistica_campus():
+    
+    try:
+        with open("json//campus.json","r") as file:
+            archivo = json.load(file)
+            return archivo
+    except FileNotFoundError:
+        #CREAR SALONES PARA REGISTRAR QUE GRUPO LO VA A USAR SIN REPETIRSE Y CUANDO SE MUESTRE LA INFORMACION DEL TRAINER SE MUESTRE
+        return {
+            "artemis":{
+                "6AM":None,
+                "10AM":None,
+                "2PM":None
+                       },
+            "sputnik":{
+                "6AM":None,
+                "10AM":None,
+                "2PM":None
+                       },
+            "kepler":{
+                "6AM":None,
+                "10AM":None,
+                "2PM":None
+                       },
+            "grupos":[]
+        }
+            
+#***************************************************************
         
 def registrar_camper():
     while True:        
@@ -327,7 +362,6 @@ def asignar_salon():
         print("Puedes ir al menú y escoger la opción mostrar los grupos actuales")
         return
     
-    #ASIGNACION DE CANTIDAD MINIMA Y MAXIMA DE ESTUDIANTES
     max_estudiantes = 33
     min_estudiantes = 5
     
@@ -346,9 +380,9 @@ def asignar_salon():
                 data_filtrada[doc] = info
         data["en espera"] = data_filtrada
         
-        logistica=trainer.leer_logistica_campus()
-        logistica["grupos"].append(nombre_salon)
-        trainer.guardar_logistica_campus(logistica)
+        logistica=leer_logistica_campus() #llama al archivo json donde se guarda la informacion de los salones con sus horarios disponibles y los grupos disponibles
+        logistica["grupos"].append(nombre_salon)  #agrega el salon a la lista de salones disponibles para obtener horarios a escojer
+        guardar_logistica_campus(logistica)
         reu.guardar_actualizar_json(data)
         print("********************************************************")
         print(f"Se asignaron {estudiantes_a_asignar} estudiantes al salón {nombre_salon}.")
