@@ -4,16 +4,15 @@ Proyecto Campus es una aplicación para el seguimiento académico de estudiantes
 
 ## Tabla de Contenidos
 
-1. [Instalación](#instalación)
-2. [Uso](#uso)
-3. [Seguimiento Académico](#seguimiento-académico)
-4. [Rutas de Entrenamiento](#rutas-de-entrenamiento)
-5. [Tipos de Usuarios](#tipos-de-usuarios)
-6. [Módulo de Reportes](#módulo-de-reportes)
-7. [Estructura de Archivos JSON](#estructura-de-archivos-json)
-8. [Contribución](#contribución)
-9. [Licencia](#licencia)
-10. [Contacto](#contacto)
+|1.||Uso||#uso|
+2. [Seguimiento Académico](#seguimiento-académico)
+3. [Rutas de Entrenamiento](#rutas-de-entrenamiento)
+4. [Tipos de Usuarios](#tipos-de-usuarios)
+5. [Módulo de Reportes](#módulo-de-reportes)
+6. [Estructura de Archivos JSON](#estructura-de-archivos-json)
+7. [Contribución](#contribución)
+8. [Licencia](#licencia)
+9. [Contacto](#contacto)
 
 ## Instalación
 
