@@ -1,4 +1,4 @@
-# Proyecto Campus
+# Campus Class
 
 Proyecto Campus es una aplicación para el seguimiento académico de estudiantes (campers). Facilita la inscripción de estudiantes, la gestión de cursos y el seguimiento del rendimiento en diversas disciplinas de programación y sistemas de gestión de bases de datos.
 
